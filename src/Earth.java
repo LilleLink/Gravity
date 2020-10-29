@@ -18,30 +18,7 @@ public class Earth extends AstroObject implements Astromath {
 
 	@Override
 	public void updatePosition(LinkedList<AstroObject> AstroObjects, Graphics g) {
-		
-		
-		for (AstroObject o : AstroObjects) {
-			if (o != this) {
-				
-				double distance = Astromath.getDistance(this, o);
-				double gForce = Astromath.getGForce(this.getMass(), o.getMass(), distance);
-				double accelerationNoAngle = gForce / this.getMass();
-				double angle = Math.atan2((o.getY()-this.getY()), (o.getX()-this.getX()));
-				//double angle = Math.atan2((o.getCenterY()) - (this.getCenterY()),
-					//(o.getCenterX()) - (this.getCenterX()));
-				
-				acceleration.x = accelerationNoAngle * Math.cos(angle);
-				acceleration.y = accelerationNoAngle * Math.sin(angle);
-
-				velocity.x += acceleration.x * Astromath.timeFactor;
-				velocity.y += acceleration.y * Astromath.timeFactor;
-				
-			}
-		}
-		position.x += velocity.x * Astromath.timeFactor;
-		position.y += velocity.y * Astromath.timeFactor;
-
-		trace(g);
+		super.updatePosition(AstroObjects, g);
 
 		g.setColor(Color.red);
 		g.fillOval((int) (this.getCenterX() / Astromath.factor),

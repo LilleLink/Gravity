@@ -27,7 +27,7 @@ public interface Astromath {
 	public static final double factor = ES_aphelion/500;
 	
 	/*Time factor*/
-	public double timeFactor = 1000;
+	public double timeFactor = 10000;
 	
 	public static double getGForce(double mass1, double mass2, double distance) {
 		return (GravityConstant*mass1*mass2/(Math.pow(distance, 2)));
