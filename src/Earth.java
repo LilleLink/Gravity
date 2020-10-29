@@ -7,9 +7,6 @@ public class Earth extends AstroObject implements Astromath {
 	private LinkedList<Double> prevPositionsX = new LinkedList<Double>();
 	private LinkedList<Double> prevPositionsY = new LinkedList<Double>();
 
-	private double startAngle;
-	private boolean started = false;
-	
 	public Earth(double realx, double realy) {
 		super(Astromath.E_mass, realx, realy, Astromath.E_radius);
 		this.velocity.y = Astromath.getVelocity(Astromath.ES_periphelion, Astromath.S_mass, Astromath.ES_SM_axis);

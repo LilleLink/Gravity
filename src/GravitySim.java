@@ -11,8 +11,6 @@ public class GravitySim extends JFrame implements Astromath {
 		super(Title);
 		this.setPreferredSize(new Dimension(1920, 1080));
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		//this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		//this.setUndecorated(true);
 		this.pack();
 
 		pf = new paintFrame(this.getWidth(), this.getHeight());
@@ -24,7 +22,6 @@ public class GravitySim extends JFrame implements Astromath {
 
 	public static void main(String[] args) {
 		new GravitySim("Gravity");
-		//System.out.println((Astromath.GravityConstant*Astromath.E_mass*Astromath.S_mass/Math.pow(Astromath.ES_aphelion, 2)));
 	}
 	
 	public static paintFrame getPaintFrame() {
