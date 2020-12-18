@@ -1,3 +1,9 @@
+package view;
+
+import model.AstroObject;
+import model.Astromath;
+import model.Earth;
+
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -49,10 +55,10 @@ public class paintFrame extends Canvas implements Runnable, KeyListener{
 		Earth =  new Earth(Sun.getX()-Astromath.ES_periphelion, Sun.getY());
 		AstroObjects.add(Earth);
 
-		/*Earth =  new Earth(Astromath.toMeters(this.getWidth()/2-16),Astromath.toMeters(this.getHeight()/2-30));
-		AstroObjects.add(Earth);*/
+		/*model.Earth =  new model.Earth(model.Astromath.toMeters(this.getWidth()/2-16),model.Astromath.toMeters(this.getHeight()/2-30));
+		AstroObjects.add(model.Earth);*/
 		
-		//System.out.println(Earth.getCenterY()-Sun.getCenterY());
+		//System.out.println(model.Earth.getCenterY()-Sun.getCenterY());
 		System.out.println(startAngle);
 		Moon = new Moon(Earth.getX()-Astromath.EM_aphelion, Earth.getY());
 		AstroObjects.add(Moon);
@@ -77,16 +83,16 @@ public class paintFrame extends Canvas implements Runnable, KeyListener{
 			gfx.drawLine(0, this.getHeight()/2, this.getWidth(), this.getHeight()/2);
 			gfx.drawLine(this.getWidth()/2, 0, this.getWidth()/2, this.getHeight());
 			
-			//System.out.println(Astromath.getGForce(Astromath.M_mass, Astromath.E_mass, Astromath.getDistance(Earth, Moon)));
+			//System.out.println(model.Astromath.getGForce(model.Astromath.M_mass, model.Astromath.E_mass, model.Astromath.getDistance(model.Earth, Moon)));
 			//System.out.println();
 			for (AstroObject a : AstroObjects) {
 				a.updatePosition(AstroObjects, gfx);
 			}
-			timeCount = timeCount+Astromath.timeFactor;
+			timeCount = timeCount+ Astromath.timeFactor;
 			controlAngle();
 			g.drawImage(img, 0, 0, this);
 		}
-		//System.out.println(Astromath.getAngularVelocity(Astromath.getDistance(Earth, Moon), Earth.getMass()));
+		//System.out.println(model.Astromath.getAngularVelocity(model.Astromath.getDistance(model.Earth, Moon), model.Earth.getMass()));
 		
 	}
 	
@@ -111,13 +117,10 @@ public class paintFrame extends Canvas implements Runnable, KeyListener{
 	private void controlAngle() {
 		double newAngle = Math.atan2((Sun.getY()) - (Earth.getY()), (Sun.getX()) - (Earth.getX()));
 		double newAngleMoon = Math.atan2((Moon.getY() - Earth.getY()), (Moon.getX() - Earth.getX()));
-		
-		//System.out.println(newAngleMoon);
-		//System.out.println(Astromath.getDistance(Moon, Earth)/Math.pow(10, 8));
-		//System.out.println(startAngle+" (start)");
+
 		if (newAngle <= startAngle+0.0005 && newAngle >= startAngle-0.0005) {
 			pause();
-			System.out.println("Earth has done a lap after "+timeCount/86400+" days");
+			System.out.println("model.Earth has done a lap after "+timeCount/86400+" days");
 		}
 		
 		if (newAngleMoon <= startAngleMoon+0.0020 && newAngleMoon >= startAngleMoon-0.0020) {

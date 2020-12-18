@@ -1,7 +1,10 @@
+package view;
+
+import model.Astromath;
+
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 public class GravitySim extends JFrame implements Astromath {
 	

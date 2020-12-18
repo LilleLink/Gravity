@@ -1,12 +1,14 @@
+package model;
+
 public interface Astromath {
 	
-	/*Earth to Sun variables*/
+	/*model.Earth to Sun variables*/
 	public double ES_SM_axis = (1.495979*Math.pow(10, 11));
 	public double ES_ecentricity = 0.01671022;
 	public double ES_aphelion= ES_SM_axis*(1+ES_ecentricity);
 	public double ES_periphelion= ES_SM_axis*(1-ES_ecentricity);
 	
-	/*Earth to Moon variables*/
+	/*model.Earth to Moon variables*/
 	public double EM_SM_axis = 384748000;
 	public double EM_ecentricity = 0.0549006;
 	public double EM_aphelion = EM_SM_axis*(1+EM_ecentricity);

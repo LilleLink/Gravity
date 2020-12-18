@@ -1,4 +1,4 @@
-/* -*- mode: java; c-basic-offset: 2; indent-tabs-mode: nil -*- */
+package model;/* -*- mode: java; c-basic-offset: 2; indent-tabs-mode: nil -*- */
  
 /*
   Part of the Processing project - http://processing.org 
@@ -28,13 +28,13 @@
  * A class to describe a two or three dimensional vector. 
  * <p> 
  * The result of all functions are applied to the vector itself, with the 
- * exception of cross(), which returns a new PVector (or writes to a specified 
- * 'target' PVector). That is, add() will add the contents of one vector to 
+ * exception of cross(), which returns a new model.PVector (or writes to a specified
+ * 'target' model.PVector). That is, add() will add the contents of one vector to
  * this one. Using add() with additional parameters allows you to put the 
- * result into a new PVector. Functions that act on multiple vectors also 
+ * result into a new model.PVector. Functions that act on multiple vectors also
  * include static versions. Because creating new objects can be computationally 
- * expensive, most functions include an optional 'target' PVector, so that a 
- * new PVector object is not created with each operation. 
+ * expensive, most functions include an optional 'target' model.PVector, so that a
+ * new model.PVector object is not created with each operation.
  * <p> 
  * Initially based on the Vector3D class by <a href="http://www.shiffman.net">Dan Shiffman</a>. 
  */ 
@@ -104,7 +104,7 @@ public class PVector {
   /**
    * Set x, y, and z coordinates from a Vector3D object. 
    * 
-   * @param v the PVector object to be copied 
+   * @param v the model.PVector object to be copied
    */ 
   public void set(PVector v) { 
     x = v.x; 
@@ -268,10 +268,10 @@ public class PVector {
  
  
   /**
-   * Multiply a vector by a scalar, and write the result into a target PVector. 
+   * Multiply a vector by a scalar, and write the result into a target model.PVector.
    * @param v a vector 
    * @param n scalar 
-   * @param target PVector to store the result 
+   * @param target model.PVector to store the result
    * @return the target vector, now set to v1 * n 
    */ 
   static public PVector mult(PVector v, double n, PVector target) { 
@@ -297,7 +297,7 @@ public class PVector {
  
   /**
    * Multiply each element of one vector by the individual elements of another 
-   * vector, and return the result as a new PVector. 
+   * vector, and return the result as a new model.PVector.
    */ 
   static public PVector mult(PVector v1, PVector v2) { 
     return mult(v1, v2, null); 
@@ -309,7 +309,7 @@ public class PVector {
    * vector, and write the result into a target vector. 
    * @param v1 the first vector 
    * @param v2 the second vector 
-   * @param target PVector to store the result 
+   * @param target model.PVector to store the result
    */ 
   static public PVector mult(PVector v1, PVector v2, PVector target) { 
     if (target == null) { 
@@ -365,7 +365,7 @@ public class PVector {
  
   /**
    * Multiply each element of one vector by the individual elements of another 
-   * vector, and return the result as a new PVector. 
+   * vector, and return the result as a new model.PVector.
    */ 
   static public PVector div(PVector v1, PVector v2) { 
     return div(v1, v2, null); 
@@ -377,7 +377,7 @@ public class PVector {
    * vector, and write the result into a target vector. 
    * @param v1 the first vector 
    * @param v2 the second vector 
-   * @param target PVector to store the result 
+   * @param target model.PVector to store the result
    */ 
   static public PVector div(PVector v1, PVector v2, PVector target) { 
     if (target == null) { 

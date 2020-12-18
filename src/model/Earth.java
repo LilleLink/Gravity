@@ -1,11 +1,17 @@
+package model;
+
+import model.AstroObject;
+import model.Astromath;
+
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Earth extends AstroObject implements Astromath {
 
-	private LinkedList<Double> prevPositionsX = new LinkedList<Double>();
-	private LinkedList<Double> prevPositionsY = new LinkedList<Double>();
+	private List<Double> prevPositionsX = new ArrayList<>();
+	private List<Double> prevPositionsY = new ArrayList<>();
 
 	public Earth(double realx, double realy) {
 		super(Astromath.E_mass, realx, realy, Astromath.E_radius);
@@ -14,7 +20,7 @@ public class Earth extends AstroObject implements Astromath {
 	}
 
 	@Override
-	public void updatePosition(LinkedList<AstroObject> AstroObjects, Graphics g) {
+	public void updatePosition(List<AstroObject> AstroObjects, Graphics g) {
 		super.updatePosition(AstroObjects, g);
 
 		g.setColor(Color.red);
@@ -26,8 +32,8 @@ public class Earth extends AstroObject implements Astromath {
 
 	public void trace(Graphics g) {
 		if (GravitySim.getPaintFrame().getTimeCount() % 100000 == 0) {
-			prevPositionsX.addFirst(position.x);
-			prevPositionsY.addFirst(position.y);
+			prevPositionsX.add(position.x);
+			prevPositionsY.add(position.y);
 		}
 
 		g.setColor(Color.red);
@@ -75,31 +81,8 @@ public class Earth extends AstroObject implements Astromath {
 	}
 
 	@Override
-	public double getYAcceleration() {
-		return acceleration.y;
-	}
-
-	@Override
-	public void setAcceleration(double ax, double ay) {
-		acceleration.x = ax;
-		acceleration.y = ay;
-	}
-
-	@Override
 	public double getRadius() {
 		return radius;
-	}
-
-	@Override
-	public void setRadius(int radius) {
-		this.radius = radius;
-	}
-
-	@Override
-	public void setBounds(double x, double y, double radius) {
-		position.x = x;
-		position.y = y;
-		this.radius = radius;
 	}
 
 	@Override
@@ -122,9 +105,5 @@ public class Earth extends AstroObject implements Astromath {
 		return position.x+this.getRadius();
 	}
 
-	@Override
-	public double getVelocity() {
-		return Math.sqrt(Math.pow(this.velocity.x, 2) + Math.pow(this.velocity.y, 2));
-	}
 
 }
