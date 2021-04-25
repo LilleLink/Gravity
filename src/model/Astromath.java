@@ -43,8 +43,7 @@ public interface Astromath {
 		return Math.sqrt(GravityConstant*referenceMass*((2/distance)-(1/referenceAxis)));
 	}
 	
-	public static double getDistance(AstroObject a, AstroObject b) {
-
+	public static double getDistance(IAstroObject a, IAstroObject b) {
 		return Math.sqrt(Math.pow((a.getX()-b.getX()),2)+Math.pow((a.getY()-b.getY()),2));
 	}
 	

@@ -1,5 +1,7 @@
 package model;
 
+import view.GravityView;
+import App.Application;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +32,8 @@ public class AstroObject implements Astromath, IAstroObject{
 		this.pixelSize = pixelSize;
 	}
 
-	
 	public void trace(Graphics g) {
-		if (view.GravitySim.getPaintFrame().getTimeCount() % 100000 == 0) {
+		if (Application.getTimeCount() % 100000 == 0) {
 			prevPositionsX.add(position.x);
 			prevPositionsY.add(position.y);
 		}
@@ -44,9 +45,10 @@ public class AstroObject implements Astromath, IAstroObject{
 			g.fillRect((int) (p / Astromath.factor), (int) (prevPositionsY.get(index) / Astromath.factor), pixelSize, pixelSize);
 		}
 	}
+
 	@Override
-	public void move(List<AstroObject> AstroObjects, Graphics g) {
-		for (AstroObject o : AstroObjects) {
+	public void move(List<IAstroObject> AstroObjects) {
+		for (IAstroObject o : AstroObjects) {
 			if (o != this) {
 
 				double distance = Astromath.getDistance(this, o);
