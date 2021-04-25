@@ -3,6 +3,7 @@ package view;
 import model.AstroObject;
 import model.Astromath;
 import model.Earth;
+import model.IAstroObject;
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -17,7 +18,7 @@ import java.util.TimerTask;
 public class paintFrame extends Canvas implements Runnable, KeyListener{
 
 	private Thread thread;
-	public static LinkedList<AstroObject> AstroObjects = new LinkedList<AstroObject>();
+	public static LinkedList<IAstroObject> AstroObjects = new LinkedList<>();
 	private double timeCount = 0;
 	
 	public boolean paused = false;
@@ -85,8 +86,8 @@ public class paintFrame extends Canvas implements Runnable, KeyListener{
 			
 			//System.out.println(model.Astromath.getGForce(model.Astromath.M_mass, model.Astromath.E_mass, model.Astromath.getDistance(model.Earth, Moon)));
 			//System.out.println();
-			for (AstroObject a : AstroObjects) {
-				a.updatePosition(AstroObjects, gfx);
+			for (IAstroObject a : AstroObjects) {
+				a.move(AstroObjects, gfx);
 			}
 			timeCount = timeCount+ Astromath.timeFactor;
 			controlAngle();

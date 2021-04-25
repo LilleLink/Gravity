@@ -21,7 +21,7 @@ public class Earth extends AstroObject implements Astromath {
 
 	@Override
 	public void updatePosition(List<AstroObject> AstroObjects, Graphics g) {
-		super.updatePosition(AstroObjects, g);
+		super.move(AstroObjects, g);
 
 		g.setColor(Color.red);
 		g.fillOval((int) (this.getCenterX() / Astromath.factor),

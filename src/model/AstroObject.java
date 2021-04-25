@@ -44,7 +44,7 @@ public class AstroObject implements Astromath, IAstroObject{
 			g.fillRect((int) (p / Astromath.factor), (int) (prevPositionsY.get(index) / Astromath.factor), pixelSize, pixelSize);
 		}
 	}
-	
+	@Override
 	public void move(List<AstroObject> AstroObjects, Graphics g) {
 		for (AstroObject o : AstroObjects) {
 			if (o != this) {
