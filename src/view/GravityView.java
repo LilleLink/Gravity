@@ -10,12 +10,9 @@ import javax.swing.JFrame;
 public class GravityView extends JFrame implements Astromath {
 	
 	private paintFrame pf;
-	private Model model;
 
 	public GravityView(String Title, Model model) {
 		super(Title);
-
-		this.model = model;
 
 		this.setPreferredSize(new Dimension(1920, 1080));
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -32,13 +29,5 @@ public class GravityView extends JFrame implements Astromath {
 	{
 		pf.repaint();
 	}
-
-	/*public static void main(String[] args) {
-		new GravityView("Gravity");
-	}*/
-
-	/*public static paintFrame getPaintFrame() {
-		return pf;
-	}*/
 
 }

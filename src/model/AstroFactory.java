@@ -14,16 +14,16 @@ public class AstroFactory {
 
     static IAstroObject createSun() {
         return new AstroObject(Astromath.S_mass, sunX, sunY,
-                Astromath.S_radius, new Color(255,255,0,0), 10);
+                Astromath.S_radius, new Color(255,255,0,255), 10);
     }
 
     static IAstroObject createEarth() {
         return new AstroObject(Astromath.E_mass, earthX, earthY, Astromath.E_radius,
-                new Color(0,0,255,0), 5);
+                new Color(0,0,255,255), 5);
     }
 
     static IAstroObject createMoon() {
         return new AstroObject(Astromath.M_mass, moonX, moonY, Astromath.M_radius,
-                new Color(255,255,255,0), 2);
+                new Color(255,255,255,255), 2);
     }
 }
