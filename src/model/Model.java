@@ -38,7 +38,7 @@ public class Model {
             a.move(AstroObjects);
             //System.out.println(Astromath.toPixels(a.getX()));
         }
-        //controlAngle();
+        controlAngle();
     }
 
     private void controlAngle() {

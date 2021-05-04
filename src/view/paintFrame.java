@@ -30,12 +30,12 @@ public class paintFrame extends Canvas implements KeyListener{
 			gfx.fillRect(0, 0, this.getWidth(), this.getHeight());
 			
 			//Grid
-			gfx.setColor(Color.WHITE);
-			gfx.drawLine(0, this.getHeight()/2, this.getWidth(), this.getHeight()/2);
-			gfx.drawLine(this.getWidth()/2, 0, this.getWidth()/2, this.getHeight());
+			//gfx.setColor(Color.WHITE);
+			//gfx.drawLine(0, this.getHeight()/2, this.getWidth(), this.getHeight()/2);
+			//gfx.drawLine(this.getWidth()/2, 0, this.getWidth()/2, this.getHeight());
 
 			for (IAstroObject a: model.getAstroObjects()) {
-				a.paint(g);
+				a.paint(gfx);
 			}
 
 			g.drawImage(img, 0, 0, this);

@@ -82,7 +82,7 @@ public class AstroObject implements Astromath, IAstroObject{
 		g.setColor(color);
 		g.fillOval((int) (this.getCenterX() / Astromath.factor),
 				(int) (this.getCenterY() / Astromath.factor), pixelSize, pixelSize);
-		//g.setColor(Color.white);
+		g.setColor(Color.white);
 	}
 
 	public double getMass() {
