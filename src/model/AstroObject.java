@@ -74,7 +74,7 @@ public class AstroObject implements Astromath, IAstroObject{
 	@Override
 	public void paint(Graphics g) {
 		paintMe(g);
-		//trace(g);
+		trace(g);
 	}
 
 	@Override

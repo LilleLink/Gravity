@@ -4,9 +4,7 @@ import model.Astromath;
 import model.Model;
 import view.GravityView;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
+// TODO: https://app.diagrams.net/#G1fkylgg9SZ79bVJ9xB83P9qAtFSf0ML9h
 public class Application implements Runnable{
 
     private GravityView view;
@@ -14,8 +12,7 @@ public class Application implements Runnable{
 
     private Thread thread;
 
-    private Timer timer;
-    private static int timeCount;
+    private static int frameCount;
 
     public static void main(String[] args) {
         new Application().start();
@@ -26,25 +23,12 @@ public class Application implements Runnable{
         view = new GravityView("Gravity", model);
         thread = new Thread(this);
         thread.start();
-        initTimer();
     }
 
-    private void initTimer()
-    {
-        timer = new Timer();
-        TimerTask tt = new TimerTask()
-        {
-            @Override
-            public void run()
-            {
-                timeCount += Astromath.timeFactor;
-            }
-        };
-        timer.scheduleAtFixedRate(tt, 1000, 1000);
-    }
+    // TODO: Frame count, not second count
 
     public static int getTimeCount() {
-        return timeCount;
+        return frameCount;
     }
 
     @Override
@@ -53,7 +37,7 @@ public class Application implements Runnable{
         while (true) {
             model.update();
             view.update();
-
+            frameCount += Astromath.timeFactor;
             try {
                 thread.sleep(10);
             } catch (InterruptedException e) {

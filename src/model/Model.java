@@ -36,11 +36,11 @@ public class Model {
     {
         for (IAstroObject a: AstroObjects) {
             a.move(AstroObjects);
-            //System.out.println(Astromath.toPixels(a.getX()));
         }
         controlAngle();
     }
 
+    // Works best with timefactor =~ 1k due to Eulers step method.
     private void controlAngle() {
         double newAngle = Math.atan2((Sun.getY()) - (Earth.getY()), (Sun.getX()) - (Earth.getX()));
         double newAngleMoon = Math.atan2((Moon.getY() - Earth.getY()), (Moon.getX() - Earth.getX()));
