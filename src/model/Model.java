@@ -18,6 +18,8 @@ public class Model {
     private double startAngleMoon;
     private int moonLaps;
 
+    private static boolean paused;
+
     public Model() {
         Sun = AstroFactory.createSun();
         Earth = AstroFactory.createEarth();
@@ -29,15 +31,21 @@ public class Model {
         startAngle = Math.atan2((Sun.getY()) - (Earth.getY()), (Sun.getX()) - (Earth.getX()));
         startAngleMoon = Math.atan2((Moon.getY()-Earth.getY()), (Moon.getX()-Earth.getX()));
         moonLaps = 0;
+
+        paused = false;
     }
 
     public void update()
     {
-        for (IAstroObject a: AstroObjects) {
-            a.move(AstroObjects);
+        if (!paused) {
+            for (IAstroObject a: AstroObjects) {
+                a.move(AstroObjects);
+            }
+            controlAngle();
         }
-        controlAngle();
     }
+
+    public static void pause() { paused = !paused; }
 
     // Works best with timefactor =~ 1k due to Eulers step method.
     private void controlAngle() {

@@ -16,7 +16,7 @@ public class PauseController implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == 80) {
-            Application.pause();
+            Model.pause();
         }
     }
 
