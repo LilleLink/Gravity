@@ -33,6 +33,7 @@ public class Application implements Runnable {
         return frameCount;
     }
 
+    //TODO Move to model, view doesnt need to be paused
     public static void pause() { paused = !paused;
         System.out.println(paused);
     }

@@ -42,7 +42,7 @@ public class AstroObject implements Astromath, IAstroObject{
 
 		for (double p : prevPositionsX) {
 			int index = prevPositionsX.indexOf(p);
-			g.fillRect((int) (p / Astromath.factor), (int) (prevPositionsY.get(index) / Astromath.factor), pixelSize, pixelSize);
+			g.fillRect((int) (p / Astromath.factor), (int) (prevPositionsY.get(index) / Astromath.factor), 1, 1);
 		}
 	}
 
