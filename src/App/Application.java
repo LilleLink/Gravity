@@ -1,11 +1,12 @@
 package App;
 
+import controller.PauseController;
 import model.Astromath;
 import model.Model;
 import view.GravityView;
 
 // TODO: https://app.diagrams.net/#G1fkylgg9SZ79bVJ9xB83P9qAtFSf0ML9h
-public class Application implements Runnable{
+public class Application implements Runnable {
 
     private GravityView view;
     private Model model;
@@ -13,6 +14,7 @@ public class Application implements Runnable{
     private Thread thread;
 
     private static int frameCount;
+    private static boolean paused;
 
     public static void main(String[] args) {
         new Application().start();
@@ -21,28 +23,34 @@ public class Application implements Runnable{
     private void start() {
         model = new Model();
         view = new GravityView("Gravity", model);
+        view.getPaintFrame().addKeyListener(new PauseController());
         thread = new Thread(this);
         thread.start();
+        paused = false;
     }
-
-    // TODO: Frame count, not second count
 
     public static int getTimeCount() {
         return frameCount;
+    }
+
+    public static void pause() { paused = !paused;
+        System.out.println(paused);
     }
 
     @Override
     public void run()
     {
         while (true) {
-            model.update();
-            view.update();
-            frameCount += Astromath.timeFactor;
-            try {
-                thread.sleep(10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            if (!paused) {
+                model.update();
+                frameCount += Astromath.timeFactor;
+                try {
+                    thread.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
+            view.update();
         }
     }
 }

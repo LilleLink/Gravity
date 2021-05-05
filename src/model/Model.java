@@ -9,7 +9,6 @@ import java.util.List;
 public class Model {
 
     private List<IAstroObject> AstroObjects = new ArrayList<>();
-    private boolean paused;
 
     private IAstroObject Sun;
     private IAstroObject Earth;
@@ -61,7 +60,4 @@ public class Model {
         return AstroObjects;
     }
 
-    public void setPaused() {
-        paused = !paused;
-    }
 }
